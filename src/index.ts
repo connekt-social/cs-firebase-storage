@@ -10,6 +10,18 @@ const components = [
 const config = {
   components,
   url: null,
+  settingsSchema: {
+    type: "object",
+    properties: {
+      serviceKeyPath: {
+        type: "string",
+      },
+      storageBucket: {
+        type: "string",
+      },
+    },
+    required: ["serviceKeyPath", "storageBucket"],
+  },
 };
 
 export default {

@@ -26,5 +26,14 @@ describe("firebase file upload", () => {
     expect(fileUrl).toBeTruthy();
 
     console.log("FILE UPLOADED: " + fileUrl);
+    const fileUrl2 = await upload(
+      {
+        contents: file,
+        uploadPath: "testuploads/" + dayjs().toISOString(),
+      },
+      config
+    );
+    expect(fileUrl2).toBeTruthy();
+    console.log("FILE 2 UPLOADED: " + fileUrl2);
   });
 });

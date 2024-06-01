@@ -5,8 +5,11 @@ export type FileOptions = {
   uploadPath: string;
   contents: string | Buffer;
 };
+let initializedApp: any = null;
 const upload = async (file: FileOptions, config: FirebaseConfig) => {
-  app(config);
+  if (!initializedApp) {
+    initializedApp = app(config);
+  }
   const cloudFile = getStorage().bucket().file(file.uploadPath);
   await cloudFile.save(file.contents);
 
